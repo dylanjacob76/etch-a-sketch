@@ -19,3 +19,8 @@
   height: 40px; 
   border: 1px solid black;
 }
+
+.active {
+  background-color: aquamarine;
+  transition-duration: all 0.5s ease;
+}

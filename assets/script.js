@@ -4,17 +4,28 @@
 // set a width to the grid itself *DONE*
 // use flexbox wrap to style and make the grid not just one line *DONE*
 
+// add hover effect to the gridSqaure class that changes the background color
+// aquamarine
 
 
 
-function createGrid() {
+
+const createGrid = () => {
   const grid = document.querySelector("#grid");
 
   for (let i = 0; i < 256; i++) {
-    let divEl = document.createElement("div");
-    divEl.classList.add("gridSqaure");
-    grid.appendChild(divEl);
+    let sqaure = document.createElement("div");
+    sqaure.classList.add("gridSqaure");
+    sqaure.addEventListener("mouseover", function() {
+      addHover(sqaure);
+    });
+    grid.appendChild(sqaure);
+
   }
+}
+
+const addHover = (square) => {
+  square.classList.add("active");
 }
 
 createGrid();
