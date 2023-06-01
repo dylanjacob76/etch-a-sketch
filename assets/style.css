@@ -5,22 +5,15 @@
 }
 
 #container {
-
+  max-width: 500px;
+  display: flex;
+  flex-wrap: wrap;
 }
 
-#grid {
- width: 640px;
- display: flex;
- flex-wrap: wrap;
-}
-
-.gridSqaure {
-  width: 40px; 
-  height: 40px; 
+.gridSquare {
   border: 1px solid black;
 }
 
 .active {
   background-color: aquamarine;
-  transition-duration: all 0.5s ease;
 }
