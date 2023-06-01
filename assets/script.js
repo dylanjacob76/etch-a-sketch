@@ -1,9 +1,9 @@
-const grid = document.querySelector(".grid");
+const grid = document.querySelector("#grid");
 
 // creates grid
 const createGrid = (size) => {
   let gridSize = size * size;
-  let sqaureSize = 500 / size;
+  let sqaureSize = 700 / size;
 
   for (let i = 0; i < gridSize; i++) {
     const sqaure = document.createElement("div");
@@ -26,7 +26,7 @@ const getNewSize = () => {
     alert("Please enter a size lower than 100!");
     return;
   }
-  grid.replaceChildren()
+  grid.replaceChildren();
   createGrid(sizePrompt);
 }
 
@@ -37,6 +37,18 @@ const createSizeButton = () => {
   sizeButton.textContent = "Size";
   sizeButton.addEventListener("click", getNewSize);
   container.appendChild(sizeButton);
+}
+
+
+//get random color
+const getRandomColor = () => {
+  const red = document.querySelector(".red");
+  const blue = document.querySelector(".blue");
+  const colors = [red, blue];
+  const randomIndex = Math.floor(Math.random() * colors.length)
+  let randomColor = colors[randomIndex];
+
+  return randomColor;
 }
 
 createGrid(16); // DEFAULT GRID
