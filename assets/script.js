@@ -1,21 +1,43 @@
+const grid = document.querySelector(".grid");
+
+// creates grid
 const createGrid = (size) => {
-  const container = document.querySelector("#container");
   let gridSize = size * size;
-  let sqaureSize = 500/size;
+  let sqaureSize = 500 / size;
+
   for (let i = 0; i < gridSize; i++) {
     const sqaure = document.createElement("div");
     sqaure.classList.add("gridSquare");
     sqaure.setAttribute("style", `width: ${sqaureSize}px; height: ${sqaureSize}px`)
     sqaure.addEventListener("mouseover", () => createGridHover(sqaure))
-    container.appendChild(sqaure);
+    grid.appendChild(sqaure);
   }
 }
 
+// creates grid hover
 const createGridHover = (sqaure) => {
   sqaure.classList.add("active");
 }
 
-createGrid(16);
+// uses prompt to get new grid size
+const getNewSize = () => {
+  const sizePrompt = prompt("What size would you like the grid?");
+  if (sizePrompt > 100) {
+    alert("Please enter a size lower than 100!");
+    return;
+  }
+  grid.replaceChildren()
+  createGrid(sizePrompt);
+}
 
+// creates size button
+const createSizeButton = () => {
+  const container = document.querySelector("#container");
+  const sizeButton = document.createElement("button");
+  sizeButton.textContent = "Size";
+  sizeButton.addEventListener("click", getNewSize);
+  container.appendChild(sizeButton);
+}
 
-// create a button that takes in the createGrid function as a callback and makes the size parameter equal to the prompt
+createGrid(16); // DEFAULT GRID
+createSizeButton();
